@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.web.entity.UserInfoMapper">
+	<resultMap id="BaseResultMap" type="com.example.web.entity.UserInfo">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="true_name" property="true_name" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="company" property="company" jdbcType="VARCHAR" />
+		<result column="position" property="position" jdbcType="VARCHAR" />
+		<result column="tel" property="tel" jdbcType="VARCHAR" />
+		<result column="number" property="number" jdbcType="VARCHAR" />
+		<result column="rank" property="rank" jdbcType="INTEGER" />
+		<result column="is_admin" property="is_admin" jdbcType="INTEGER" />
+		<result column="super_id" property="super_id" jdbcType="BIGINT" />
+		<result column="is_auto_login" property="is_auto_login"
+			jdbcType="INTEGER" />
+		<result column="is_effective" property="is_effective" jdbcType="INTEGER" />
+		<result column="gmt_created" property="gmt_created" jdbcType="TIMESTAMP" />
+		<result column="user_created" property="user_created" jdbcType="BIGINT" />
+		<result column="gmt_modified" property="gmt_modified" jdbcType="TIMESTAMP" />
+		<result column="user_modified" property="user_modified"
+			jdbcType="BIGINT" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id, username, password, true_name, email, company, position, tel, number,
+		rank, is_admin,
+		super_id, is_auto_login, is_effective, gmt_created, user_created, gmt_modified,
+		user_modified
+	</sql>
+	
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from user_info
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from user_info
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+	
+	<insert id="insert" parameterType="com.example.web.entity.UserInfo">
+		insert into user_info (id, username, password,
+		true_name, email, company,
+		position, tel, number,
+		rank, is_admin, super_id,
+		is_auto_login, is_effective, gmt_created,
+		user_created, gmt_modified, user_modified
+		)
+		values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{true_name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR},
+		#{position,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR},
+		#{number,jdbcType=VARCHAR},
+		#{rank,jdbcType=INTEGER}, #{is_admin,jdbcType=INTEGER}, #{super_id,jdbcType=BIGINT},
+		#{is_auto_login,jdbcType=INTEGER}, #{is_effective,jdbcType=INTEGER},
+		#{gmt_created,jdbcType=TIMESTAMP},
+		#{user_created,jdbcType=BIGINT}, #{gmt_modified,jdbcType=TIMESTAMP}, #{user_modified,jdbcType=BIGINT}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.example.web.entity.UserInfo">
+		insert into user_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="username != null">
+				username,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="true_name != null">
+				true_name,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="company != null">
+				company,
+			</if>
+			<if test="position != null">
+				position,
+			</if>
+			<if test="tel != null">
+				tel,
+			</if>
+			<if test="number != null">
+				number,
+			</if>
+			<if test="rank != null">
+				rank,
+			</if>
+			<if test="is_admin != null">
+				is_admin,
+			</if>
+			<if test="super_id != null">
+				super_id,
+			</if>
+			<if test="is_auto_login != null">
+				is_auto_login,
+			</if>
+			<if test="is_effective != null">
+				is_effective,
+			</if>
+			<if test="gmt_created != null">
+				gmt_created,
+			</if>
+			<if test="user_created != null">
+				user_created,
+			</if>
+			<if test="gmt_modified != null">
+				gmt_modified,
+			</if>
+			<if test="user_modified != null">
+				user_modified,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="true_name != null">
+				#{true_name,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="company != null">
+				#{company,jdbcType=VARCHAR},
+			</if>
+			<if test="position != null">
+				#{position,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null">
+				#{tel,jdbcType=VARCHAR},
+			</if>
+			<if test="number != null">
+				#{number,jdbcType=VARCHAR},
+			</if>
+			<if test="rank != null">
+				#{rank,jdbcType=INTEGER},
+			</if>
+			<if test="is_admin != null">
+				#{is_admin,jdbcType=INTEGER},
+			</if>
+			<if test="super_id != null">
+				#{super_id,jdbcType=BIGINT},
+			</if>
+			<if test="is_auto_login != null">
+				#{is_auto_login,jdbcType=INTEGER},
+			</if>
+			<if test="is_effective != null">
+				#{is_effective,jdbcType=INTEGER},
+			</if>
+			<if test="gmt_created != null">
+				#{gmt_created,jdbcType=TIMESTAMP},
+			</if>
+			<if test="user_created != null">
+				#{user_created,jdbcType=BIGINT},
+			</if>
+			<if test="gmt_modified != null">
+				#{gmt_modified,jdbcType=TIMESTAMP},
+			</if>
+			<if test="user_modified != null">
+				#{user_modified,jdbcType=BIGINT},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.example.web.entity.UserInfo">
+		update user_info
+		<set>
+			<if test="username != null">
+				username = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="true_name != null">
+				true_name = #{true_name,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="company != null">
+				company = #{company,jdbcType=VARCHAR},
+			</if>
+			<if test="position != null">
+				position = #{position,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null">
+				tel = #{tel,jdbcType=VARCHAR},
+			</if>
+			<if test="number != null">
+				number = #{number,jdbcType=VARCHAR},
+			</if>
+			<if test="rank != null">
+				rank = #{rank,jdbcType=INTEGER},
+			</if>
+			<if test="is_admin != null">
+				is_admin = #{is_admin,jdbcType=INTEGER},
+			</if>
+			<if test="super_id != null">
+				super_id = #{super_id,jdbcType=BIGINT},
+			</if>
+			<if test="is_auto_login != null">
+				is_auto_login = #{is_auto_login,jdbcType=INTEGER},
+			</if>
+			<if test="is_effective != null">
+				is_effective = #{is_effective,jdbcType=INTEGER},
+			</if>
+			<if test="gmt_created != null">
+				gmt_created = #{gmt_created,jdbcType=TIMESTAMP},
+			</if>
+			<if test="user_created != null">
+				user_created = #{user_created,jdbcType=BIGINT},
+			</if>
+			<if test="gmt_modified != null">
+				gmt_modified = #{gmt_modified,jdbcType=TIMESTAMP},
+			</if>
+			<if test="user_modified != null">
+				user_modified = #{user_modified,jdbcType=BIGINT},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="cn.wat.springmvcmybatis.web.entity.UserInfo">
+		update user_info
+		set username = #{username,jdbcType=VARCHAR},
+		password = #{password,jdbcType=VARCHAR},
+		true_name = #{true_name,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		company = #{company,jdbcType=VARCHAR},
+		position = #{position,jdbcType=VARCHAR},
+		tel = #{tel,jdbcType=VARCHAR},
+		number = #{number,jdbcType=VARCHAR},
+		rank = #{rank,jdbcType=INTEGER},
+		is_admin = #{is_admin,jdbcType=INTEGER},
+		super_id = #{super_id,jdbcType=BIGINT},
+		is_auto_login = #{is_auto_login,jdbcType=INTEGER},
+		is_effective = #{is_effective,jdbcType=INTEGER},
+		gmt_created = #{gmt_created,jdbcType=TIMESTAMP},
+		user_created = #{user_created,jdbcType=BIGINT},
+		gmt_modified = #{gmt_modified,jdbcType=TIMESTAMP},
+		user_modified = #{user_modified,jdbcType=BIGINT}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+</mapper>
