@@ -17,7 +17,7 @@ public class FirstController {
 	public @ResponseBody Object helloJsp(@PathVariable(value="user_id",required=false)Integer id) {
 		System.out.println("HelloController.helloJsp().hello=");
 		
-		
+		System.err.println("11");
 		return id;
 		//return "first";
 
