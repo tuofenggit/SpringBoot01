@@ -21,7 +21,7 @@ import com.alibaba.druid.wall.WallFilter;
 public class SpringBoot01Application {
 
 	public static void main(String[] args) {
-		System.out.println("11");
+		System.out.println("112222");
 		SpringApplication.run(SpringBoot01Application.class, args);
 	}
 	// test push 11231321
