@@ -1,5 +1,7 @@
 package com.example.web.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @Controller
-@RequestMapping("/jsp/")
+@RequestMapping("/")
 public class JspController {
     
 	/**
@@ -23,10 +25,10 @@ public class JspController {
 	 * @return String    返回类型 
 	 * @throws
 	 */
-	@RequestMapping("/helloJsp")
-	public String returnJsp() {
+	@RequestMapping("")
+	public String returnJsp(HttpServletRequest req) {
 		
-		return "first";
+		return "index";
 	}
 	
 }

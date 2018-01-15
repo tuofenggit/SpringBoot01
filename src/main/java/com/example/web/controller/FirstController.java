@@ -1,6 +1,5 @@
-package com.example.web;
+package com.example.web.controller;
 
-import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,14 +12,12 @@ public class FirstController {
 
 	// 从 application.properties 中读取配置，如取不到默认值为HelloShanhy
 
-	@RequestMapping(value="/{user_id}",method=RequestMethod.GET,produces="application/json")
-	public @ResponseBody Object helloJsp(@PathVariable(value="user_id",required=false)Integer id) {
+	@RequestMapping(value="/admin/{user_id}",method=RequestMethod.GET,produces="application/json")
+	public @ResponseBody Object helloJsp(@PathVariable(value="user_id",required=false)String id) {
 		System.out.println("HelloController.helloJsp().hello=");
 		
-		System.err.println("11");
-		return id;
-		//return "first";
-
+		System.err.println("你好："+id);
+		return "admin才可访问的："+id;
 	}
 
 }
